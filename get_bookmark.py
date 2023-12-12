@@ -1,12 +1,13 @@
 import os
 from PyPDF2 import PdfReader
 
-folder_name = ''
+folder_dir = ''
 file_name = ''
+data_folder_dir = ''
 
-os.chdir(folder_name)
-input_path = f'Other Topics/{file_name}.pdf'
-data_path = f'Modify PDF/{file_name}.txt'
+os.chdir(folder_dir)
+input_path = f'{file_name}.pdf'
+data_path = f'{data_folder_dir}/{file_name}.txt'
 
 shift = 1 # at which page is page 1
 
