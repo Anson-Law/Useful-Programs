@@ -3,12 +3,14 @@ from PyPDF2 import PdfReader, PdfWriter
 import pdfrw
 from pagelabels import PageLabels, PageLabelScheme
 
-os.chdir('/Users/anson/Library/CloudStorage/OneDrive-TheChineseUniversityofHongKong/MPhil/')
-folder = 'Other Topics'
-book_name = 'Vyjayanthi Chari, Andrew N. Pressley - A Guide to Quantum Groups'
-input_path = f'{folder}/{book_name}.pdf'
-output_path = f'{folder}/{book_name}_updated.pdf'
-data_path = f'Modify PDF/{book_name}.txt'
+folder_dir = ''
+file_name = ''
+data_folder_dir = ''
+
+os.chdir(folder_dir)
+input_path = f'{file_name}.pdf'
+output_path = f'{file_name}_updated.pdf'
+data_path = f'{data_folder_dir}/{book_name}.txt'
 
 
 def roman_to_num(roman):
