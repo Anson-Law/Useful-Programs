@@ -3,10 +3,13 @@ from PyPDF2 import PdfWriter, PdfReader, PageObject, Transformation
 
 A4_DIM = (560, 792)
 
-os.chdir('/Users/anson/Library/CloudStorage/OneDrive-TheChineseUniversityofHongKong/MPhil/')
-book_name = 'Pavel Etingof, Mykola Semenyakin - A Brief Introduction to Quantum Group'
-input_path = f'Hypertoric/Books and Notes/{book_name}.pdf'
-output_path = f'PDF to Booklet/{book_name}_print.pdf'
+folder_dir = ''
+file_name = ''
+data_folder_dir = ''
+
+os.chdir(folder_dir)
+input_path = f'{file_name}.pdf'
+data_path = f'{data_folder_dir}/{file_name}_print.pdf'
 
 def print_pdf_dim(input_path):
     reader = PdfReader(input_path)
@@ -129,5 +132,5 @@ def pdf_to_booklet(input_path, output_path, trim, margin=(9, 9, 0, 0), edge=20, 
 
 MATLAB_SHIFT = [-7, 1, -3, 5]
 trim = (50, 50, 50, 50)
-# crop_pdf(input_path, output_path, trim, start_page=1, end_page=10)
+crop_pdf(input_path, output_path, trim)
 pdf_to_booklet(input_path, output_path, trim, shift=MATLAB_SHIFT)
