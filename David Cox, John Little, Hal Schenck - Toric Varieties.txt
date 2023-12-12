@@ -1,0 +1,113 @@
+1:i 23:1
+Contents iii
+Preface vii
+Notation xiii
+Part I. Basic Theory of Toric Varieties 1
+    Chapter 1. Affine Toric Varieties 3
+        §1.0. Background: Affine Varieties 3
+        §1.1. Introduction to Affine Toric Varieties 10
+        §1.2. Cones and Affine Toric Varieties 23
+        §1.3. Properties of Affine Toric Varieties 35
+        Appendix: Tensor Products of Coordinate Rings 48
+    Chapter 2. Projective Toric Varieties 49
+        §2.0. Background: Projective Varieties 49
+        §2.1. Lattice Points and Projective Toric Varieties 54
+        §2.2. Lattice Points and Polytopes 62
+        §2.3. Polytopes and Projective Toric Varieties 74
+        §2.4. Properties of Projective Toric Varieties 86
+    Chapter 3. Normal Toric Varieties 93
+        §3.0. Background: Abstract Varieties 93
+        §3.1. Fans and Normal Toric Varieties 105
+        §3.2. The Orbit-Cone Correspondence 114
+        §3.3. Toric Morphisms 125
+        §3.4. Complete and Proper 139
+        Appendix: Nonnormal Toric Varieties 150
+    Chapter 4. Divisors on Toric Varieties 155
+        §4.0. Background: Valuations, Divisors and Sheaves 155
+        §4.1. Weil Divisors on Toric Varieties 170
+        §4.2. Cartier Divisors on Toric Varieties 176
+        §4.3. The Sheaf of a Torus-Invariant Divisor 189
+    Chapter 5. Homogeneous Coordinates on Toric Varieties 195
+        §5.0. Background: Quotients in Algebraic Geometry 195
+        §5.1. Quotient Constructions of Toric Varieties 205
+        §5.2. The Total Coordinate Ring 218
+        §5.3. Sheaves on Toric Varieties 226
+        §5.4. Homogenization and Polytopes 231
+    Chapter 6. Line Bundles on Toric Varieties 245
+        §6.0. Background: Sheaves and Line Bundles 245
+        §6.1. Ample and Basepoint Free Divisors on Complete Toric Varieties 262
+        §6.2. Polytopes and Projective Toric Varieties 277
+        §6.3. The Nef and Mori Cones 286
+        §6.4. The Simplicial Case 298
+        Appendix: Quasicoherent Sheaves on Toric Varieties 309
+    Chapter 7. Projective Toric Morphisms 313
+        §7.0. Background: Quasiprojective Varieties and Projective Morphisms 313
+        §7.1. Polyhedra and Toric Varieties 318
+        §7.2. Projective Morphisms and Toric Varieties 328
+        §7.3. Projective Bundles and Toric Varieties 335
+    Chapter 8. The Canonical Divisor of a Toric Variety 347
+        §8.0. Background: Reflexive Sheaves and Differential Forms 347
+        §8.1. One-Forms on Toric Varieties 358
+        §8.2. Differential Forms on Toric Varieties 365
+        §8.3. Fano Toric Varieties 379
+        Appendix: More on Projective Morphisms 345
+    Chapter 9. Sheaf Cohomology of Toric Varieties 387
+        §9.0. Background: Sheaf Cohomology 387
+        §9.1. Cohomology of Toric Divisors 398
+        §9.2. Vanishing Theorems I 409
+        §9.3. Vanishing Theorems II 420
+        §9.4. Applications to Lattice Polytopes 430
+        §9.5. Local Cohomology and the Total Coordinate Ring 443
+Part II. Topics in Toric Geometry 457
+    Chapter 10. Toric Surfaces 459
+        §10.1. Singularities of Toric Surfaces and Their Resolutions 459
+        §10.2. Continued Fractions and Toric Surfaces 467
+        §10.3. Gröbner Fans and McKay Correspondences 485
+        §10.4. Smooth Toric Surfaces 495
+        §10.5. Riemann-Roch and Lattice Polygons 502
+    Chapter 11. Toric Resolutions and Toric Singularities 513
+        §11.1. Resolution of Singularities 513
+        §11.2. Other Types of Resolutions 525
+        §11.3. Rees Algebras and Multiplier Ideals 534
+        §11.4. Toric Singularities 546
+    Chapter 12. The Topology of Toric Varieties 561
+        §12.1. The Fundamental Group 561
+        §12.2. The Moment Map 568
+        §12.3. Singular Cohomology of Toric Varieties 577
+        §12.4. The Cohomology Ring 592
+        §12.5. The Chow Ring and Intersection Cohomology 612
+    Chapter 13. Toric Hirzebruch-Riemann-Roch 623
+        §13.1. Chern Characters, Todd Classes, and HRR 624
+        §13.2. Brion’s Equalities 632
+        §13.3. Toric Equivariant Riemann-Roch 641
+        §13.4. The Volume Polynomial 654
+        §13.5. The Khovanskii-Pukhlikov Theorem 663
+        Appendix: Generalized Gysin Maps 672
+    Chapter 14. Toric GIT and the Secondary Fan 677
+        §14.1. Introduction to Toric GIT 677
+        §14.2. Toric GIT and Polyhedra 685
+        §14.3. Toric GIT and Gale Duality 699
+        §14.4. The Secondary Fan 712
+    Chapter 15. Geometry of the Secondary Fan 725
+        §15.1. The Nef and Moving Cones 725
+        §15.2. Gale Duality and Triangulations 734
+        §15.3. Crossing a Wall 747
+        §15.4. Extremal Contractions and Flips 762
+        §15.5. The Toric Minimal Model Program 772
+    Appendix A. The History of Toric Varieties 787
+        §A.1. The First Ten Years 787
+        §A.2. The Story Since 1980 794
+    Appendix B. Computational Methods 797
+        §B.1. The Rational Quartic 798
+        §B.2. Polyhedral Computations 799
+        §B.3. Normalization and Normaliz 803
+        §B.4. Sheaf Cohomology and Resolutions 805
+        §B.5. Sheaf Cohomology on the Hirzebruch Surface H2 806
+        §B.6. Resolving Singularities 808
+        §B.7. Intersection Theory and Hirzebruch-Riemann-Roch 809
+        §B.8. Anticanonical Embedding of a Fano Toric Variety 810
+    Appendix C. Spectral Sequences 811
+        §C.1. Definitions and Basic Properties 811
+        §C.2. Spectral Sequences Appearing in the Text 814
+    Bibliography 817
+    Index 831
