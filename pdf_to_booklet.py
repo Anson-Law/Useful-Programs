@@ -20,6 +20,9 @@ def print_pdf_dim(input_path):
     print(f'bottom: {box.bottom}')
     print(f'top:    {box.top}')
 
+def identify_boxes(page):
+    page.cropbox = page.mediabox
+
 def crop_pdf(input_path, output_path, trim, margin=[0, 0, 0, 0], start_page=None, end_page=None):
     reader = PdfReader(input_path)
     writer = PdfWriter()
@@ -48,6 +51,7 @@ def crop_pdf(input_path, output_path, trim, margin=[0, 0, 0, 0], start_page=None
         page.mediabox.lower_right = (right, bottom)
         page.mediabox.upper_left = (left, top)
         page.mediabox.upper_right = (right, top)
+        identify_boxes(page)
         writer.add_page(page)
     with open(output_path, 'wb') as output_stream:
         writer.write(output_stream)
@@ -115,8 +119,10 @@ def pdf_to_booklet(input_path, output_path, trim, margin=(9, 9, 0, 0), edge=20, 
     # Merge
     for i in range(len(rearranged_pages) // 2):
         merged_page = PageObject.create_blank_page(None, h, w)
-        left_page, right_page =rearranged_pages[i*2],rearranged_pages[i*2+1]
+        left_page, right_page = rearranged_pages[i*2],rearranged_pages[i*2+1]
         right_page.mediabox.lower_right = (h, 0)
+        identify_boxes(left_page)
+        identify_boxes(right_page)
         if i % 2 == 0:
             left_page.add_transformation(Transformation().scale(s).translate(txl+even_xshift, tyl+even_yshift))
             right_page.add_transformation(Transformation().scale(s).translate(txr+even_xshift, tyr+even_yshift))
@@ -130,7 +136,8 @@ def pdf_to_booklet(input_path, output_path, trim, margin=(9, 9, 0, 0), edge=20, 
     with open(output_path, 'wb') as output_stream:
         writer.write(output_stream)
 
-MATLAB_SHIFT = [-7, 1, -3, 5]
+# MATLAB_SHIFT = [-7, 1, -3, 5]
+MATLAB_SHIFT = [0, 0, 0, 2]
 trim = (50, 50, 50, 50)
 crop_pdf(input_path, output_path, trim)
 pdf_to_booklet(input_path, output_path, trim, shift=MATLAB_SHIFT)
