@@ -119,7 +119,7 @@ def pdf_to_booklet(input_path, output_path, trim, margin=(9, 9, 0, 0), edge=20, 
     # Merge
     for i in range(len(rearranged_pages) // 2):
         merged_page = PageObject.create_blank_page(None, h, w)
-        left_page, right_page = rearranged_pages[i*2],rearranged_pages[i*2+1]
+        left_page, right_page = rearranged_pages[i*2], rearranged_pages[i*2+1]
         right_page.mediabox.lower_right = (h, 0)
         identify_boxes(left_page)
         identify_boxes(right_page)
