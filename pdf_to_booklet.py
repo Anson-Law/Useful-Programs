@@ -23,7 +23,13 @@ def print_pdf_dim(input_path):
 def identify_boxes(page):
     page.cropbox = page.mediabox
 
-def crop_pdf(input_path, output_path, trim, margin=[0, 0, 0, 0], start_page=None, end_page=None):
+def page_dim(page, left, right, bottom, top):
+    page.mediabox.lower_left = (left, bottom)
+    page.mediabox.lower_right = (right, bottom)
+    page.mediabox.upper_left = (left, top)
+    page.mediabox.upper_right = (right, top)
+
+def crop_pdf(input_path, output_path, trim, margin=[0, 0, 0, 0], start_page=None, end_page=None, fit_to=None):
     reader = PdfReader(input_path)
     writer = PdfWriter()
     left_trim, right_trim, bottom_trim, top_trim = trim
@@ -36,6 +42,7 @@ def crop_pdf(input_path, output_path, trim, margin=[0, 0, 0, 0], start_page=None
         end_page = len(reader.pages)
     pages = reader.pages[start_page:end_page]
     for i, page in enumerate(pages):
+        identify_boxes(page)
         left, right, bottom, top = page.mediabox.left, page.mediabox.right, page.mediabox.bottom, page.mediabox.top
         if i % 2 == 0:
             left += left_trim - left_margin
@@ -47,12 +54,30 @@ def crop_pdf(input_path, output_path, trim, margin=[0, 0, 0, 0], start_page=None
             right -= right_trim - left_margin
             bottom += bottom_trim - bottom_margin
             top -= top_trim - top_margin
-        page.mediabox.lower_left = (left, bottom)
-        page.mediabox.lower_right = (right, bottom)
-        page.mediabox.upper_left = (left, top)
-        page.mediabox.upper_right = (right, top)
-        identify_boxes(page)
-        writer.add_page(page)
+        if fit_to is None:
+            page_dim(page, left, right, bottom, top)
+            writer.add_page(page)
+        else:
+            if fit_to == 'a4':
+                w0, h0 = A4_DIM
+            else:
+                w0, h0 = fit_to
+            w, h = right - left, top - bottom
+            sx, sy = w0 / w, h0 / h
+            print(w0, h0, w, h, sx, sy)
+            if sx <= sy:
+                s = sx
+                tx = 0
+                ty = (h0 - h * s) / 2
+            else:
+                s = sy
+                tx = (w0 - w * s) / 2
+                ty = 0
+            page.add_transformation(Transformation().translate(-left, -bottom).scale(s).translate(tx, ty))
+            page_dim(page, 0, w0, 0, h0)
+            blank_page = PageObject.create_blank_page(None, w0, h0)
+            blank_page.merge_page(page)
+            writer.add_page(blank_page)
     with open(output_path, 'wb') as output_stream:
         writer.write(output_stream)
 
